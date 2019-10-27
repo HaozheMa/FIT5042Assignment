@@ -30,19 +30,15 @@ public class AnimalController {
     private assignment.animals.eneities.Animal animal;
     
     public AnimalController() {
-        // Assign property identifier via GET param 
-        //this propertyID is the index, don't confuse with the Property Id
         animalId = Integer.valueOf(FacesContext.getCurrentInstance()
                 .getExternalContext()
                 .getRequestParameterMap()
                 .get("animalID"));
-        // Assign property based on the id provided 
         animal = getAnimal();
     }
     
     public assignment.animals.eneities.Animal getAnimal() {
         if (animal == null) {
-            // Get application context bean AnimalApplication 
             ELContext context
                     = FacesContext.getCurrentInstance().getELContext();
             AnimalApplication app
@@ -50,8 +46,7 @@ public class AnimalController {
                             .getApplication()
                             .getELResolver()
                             .getValue(context, null, "animalApplication");
-            // -1 to aanimalId since we +1 in JSF (to always have positive property id!) 
-            return app.getAnimals().get(--animalId); //this animalId is the index, don't confuse with the Property Id
+            return app.getAnimals().get(--animalId); 
         }
         return animal;
     }

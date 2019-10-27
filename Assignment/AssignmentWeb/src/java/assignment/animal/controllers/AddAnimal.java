@@ -52,24 +52,21 @@ public class AddAnimal {
                         .getELResolver()
                         .getValue(context, null, "animalApplication");
         
-        //instantiate propertyManagedBean
+       
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         animalManagedBean = (AnimalManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "animalManagedBean");
     }
     
     public void addAnimal(Animal localAnimal) {
-        //this is the local property, not the entity
        try
        {
-            //add this property to db via EJB
             animalManagedBean.addAnimal(localAnimal);
 
-            //refresh the list in PropertyApplication bean
             app.searchAll();
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Animal has been added succesfully"));
-            //refresh the property list in propertyApplication bean
+          
        }
        catch (Exception ex)
        {

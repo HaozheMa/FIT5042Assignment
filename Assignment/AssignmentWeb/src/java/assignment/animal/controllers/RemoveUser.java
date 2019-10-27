@@ -53,7 +53,6 @@ public class RemoveUser {
         
         app.updateUsersList();
         
-        //instantiate propertyManagedBean
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         usersManagedBean = (UsersManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "usersManagedBean");
@@ -62,10 +61,8 @@ public class RemoveUser {
       public void removeUser(int userId) {
        try
        {
-            //remove this property from db via EJB
             usersManagedBean.removeUser(userId);
 
-            //refresh the list in PropertyApplication bean
             app.searchAll();
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User has been deleted succesfully"));     

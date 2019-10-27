@@ -10,7 +10,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author beelzebub
+ * @author haozhe Ma
  */
 @Named(value = "titleController")
 @RequestScoped

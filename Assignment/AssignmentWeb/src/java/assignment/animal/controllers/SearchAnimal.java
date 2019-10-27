@@ -101,7 +101,6 @@ public class SearchAnimal {
     {
        try
        {
-            //search this property then refresh the list in PropertyApplication bean
             app.searchAnimalById(animalId);
        }
        catch (Exception ex)
@@ -116,7 +115,6 @@ public class SearchAnimal {
     {
        try
        {
-            //return all properties from db via EJB
             app.searchAll();
        }
        catch (Exception ex)
@@ -130,7 +128,6 @@ public class SearchAnimal {
     {
        try
        {
-            //search all properties by animal type from db via EJB 
             app.searchAnimalByAnimalTypeId(animalTypeId);
        }
        catch (Exception ex)

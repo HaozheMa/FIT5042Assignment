@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author beelzebub
+ * @author Haozhe Ma
  */
 @Path("animal")
 public class AnimalDetail {

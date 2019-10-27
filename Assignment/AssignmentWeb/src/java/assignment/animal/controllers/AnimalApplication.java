@@ -38,7 +38,6 @@ public class AnimalApplication {
     public AnimalApplication() throws Exception {       
         animals = new ArrayList<>();
         
-        //instantiate propertyManagedBean
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         animalManagedBean = (AnimalManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "animalManagedBean");

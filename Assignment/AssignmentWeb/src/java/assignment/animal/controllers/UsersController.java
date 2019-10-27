@@ -31,8 +31,6 @@ public class UsersController {
     private assignment.animals.users.Users user;
     
     public UsersController() {
-        // Assign property identifier via GET param 
-        //this propertyID is the index, don't confuse with the Property Id
         
         
             userId = Integer.valueOf(FacesContext.getCurrentInstance()
@@ -40,13 +38,11 @@ public class UsersController {
                 .getRequestParameterMap()
                 .get("usersID"));
         
-        // Assign property based on the id provided 
         user = getUser();
     }
     
     public assignment.animals.users.Users getUser() {
         if (user == null) {
-            // Get application context bean PropertyApplication 
             ELContext context
                     = FacesContext.getCurrentInstance().getELContext();
             UsersApplication app
@@ -54,8 +50,7 @@ public class UsersController {
                             .getApplication()
                             .getELResolver()
                             .getValue(context, null, "usersApplication");
-            // -1 to propertyId since we +1 in JSF (to always have positive property id!) 
-            return app.getUsers().get(--userId); //this propertyId is the index, don't confuse with the Property Id
+           return app.getUsers().get(--userId); 
         }
         return user;
     }

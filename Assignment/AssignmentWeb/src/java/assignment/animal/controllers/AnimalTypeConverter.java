@@ -34,7 +34,6 @@ import javax.faces.bean.ManagedProperty;
     {
         try
         {
-            //instantiate propertyManagedBean
             ELContext elContext = FacesContext.getCurrentInstance().getELContext();
             animalManagedBean = (AnimalManagedBean) FacesContext.getCurrentInstance().getApplication()
             .getELResolver().getValue(elContext, null, "animalManagedBean");
@@ -47,8 +46,6 @@ import javax.faces.bean.ManagedProperty;
         }
     }
                        
-    //this method is for converting the submittedValue (here it means the contact person id) to the contact person object
-    //the reason for using this method is, the dropdown box in the xhtml does not capture the contact person object, but the id.
     public assignment.animals.eneities.AnimalType getAsObject(FacesContext facesContext, UIComponent component, String submittedValue) {
         if (submittedValue.trim().equals("")) {
             return null;

@@ -75,7 +75,6 @@ public class SearchUser {
     {
        try
        {
-            //search this property then refresh the list in PropertyApplication bean
             app.searchUsersById(userId);
        }
        catch (Exception ex)
@@ -90,7 +89,6 @@ public class SearchUser {
     {
        try
        {
-            //return all properties from db via EJB
             app.searchAll();
        }
        catch (Exception ex)

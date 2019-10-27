@@ -52,7 +52,7 @@ public class AddUser {
                         .getELResolver()
                         .getValue(context, null, "usersApplication");
         
-        //instantiate propertyManagedBean
+    
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         usersManagedBean = (UsersManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "usersManagedBean");
@@ -63,13 +63,9 @@ public class AddUser {
         {
             try
        {
-            //add this property to db via EJB
+            
             usersManagedBean.addUser(localUser);
-
-            //refresh the list in PropertyApplication bean
            app.searchAll();
-
-            //refresh the property list in propertyApplication bean
        }
        catch (Exception ex)
        {

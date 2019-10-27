@@ -37,12 +37,10 @@ public class UsersApplication {
     public UsersApplication() throws Exception {       
         users = new ArrayList<>();
         
-        //instantiate propertyManagedBean
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         usersManagedBean = (UsersManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "usersManagedBean");
         
-        //get users from db 
         updateUsersList();
     }
 

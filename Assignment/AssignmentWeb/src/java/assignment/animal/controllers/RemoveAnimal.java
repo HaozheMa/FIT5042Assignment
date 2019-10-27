@@ -50,7 +50,6 @@ public class RemoveAnimal {
         
         app.updateAnimalList();
         
-        //instantiate propertyManagedBean
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
         animalManagedBean = (AnimalManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "animalManagedBean");
@@ -59,10 +58,8 @@ public class RemoveAnimal {
     public void removeAnimal(long animalId) {
        try
        {
-            //remove this property from db via EJB
             animalManagedBean.removeAnimal(animalId);
 
-            //refresh the list in PropertyApplication bean
             app.searchAll();
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Animal has been deleted succesfully"));     

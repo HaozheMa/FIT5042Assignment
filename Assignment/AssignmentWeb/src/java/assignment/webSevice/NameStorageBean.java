@@ -13,7 +13,7 @@ import javax.ejb.LocalBean;
 
 /**
  *
- * @author beelzebub
+ * @author haozhe Ma
  */
 @Singleton
 public class NameStorageBean {

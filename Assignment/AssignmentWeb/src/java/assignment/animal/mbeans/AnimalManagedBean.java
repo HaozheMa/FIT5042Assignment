@@ -89,7 +89,6 @@ public class AnimalManagedBean implements Serializable {
     }
 
     public void addAnimal(assignment.animal.controllers.Animal localAnimal) {
-        //convert this newProperty which is the local property to entity property
         Animal animal = convertAnimalToEntity(localAnimal);
 
         try {
@@ -101,7 +100,6 @@ public class AnimalManagedBean implements Serializable {
 
     public Set<Animal> searchAnimalByAnimalTypeId(long animalTypeId) {
         try {
-            //retrieve animaltype person by id
             for (AnimalType animalType : animalRepository.getAllAnimalType()) {
                 if (animalType.getAnimalTypeId() == animalTypeId) {
                     return animalRepository.searchAnimalByAnimalType(animalType);

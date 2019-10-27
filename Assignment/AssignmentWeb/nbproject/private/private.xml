@@ -3,14 +3,47 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/animalList.xhtml</file>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/index.xhtml</file>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/contact.xhtml</file>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/AnimalDetail.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/register.xhtml</file>
             <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/login.xhtml</file>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/ApplicationConfig.java</file>
-            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/WebServiceBean.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/SearchUser.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/AnimalTypeConverter.java</file>
             <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/NameStorageBean.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/Users.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/passwordController.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/detail.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/UsersController.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/index.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/index.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/AnimalDetail.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/mbeans/UsersManagedBean.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/AddUser.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/mbeans/AnimalManagedBean.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/index.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/Animal.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/changePassword.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/changePassword.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/AnimalApplication.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/UsersApplication.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/WEB-INF/web.xml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/contact.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/usersList.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/AnimalController.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/SearchAnimal.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/edit.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/WebServiceBean.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/RemoveUser.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/TitleController.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/add.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/detail.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/updateAccount.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/animalList.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/updateAccount.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/error.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/admin/add.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/webSevice/ApplicationConfig.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/RemoveAnimal.java</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/web/users/edit.xhtml</file>
+            <file>file:/Users/beelzebub/NetBeansProjects/AssignmentWeb/src/java/assignment/animal/controllers/AddAnimal.java</file>
         </group>
     </open-files>
 </project-private>

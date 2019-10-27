@@ -139,17 +139,12 @@ public class UsersManagedBean implements Serializable {
         StringBuilder hexString = null;
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
-            // digest() method called  
-            // to calculate message digest of an input  
-            // and return array of byte 
             byte[] hash = md.digest(input.getBytes(StandardCharsets.UTF_8));
-            // Convert byte array into signum representation  
             BigInteger number = new BigInteger(1, hash);
             hexString = new StringBuilder(number.toString(16));
         } catch (Exception e) {
 
         }
-        // Pad with leading zeros 
         while (hexString.length() < 64) {
             hexString.insert(0, '0');
         }
@@ -158,7 +153,6 @@ public class UsersManagedBean implements Serializable {
     }
 
     public void addUser(assignment.animal.controllers.Users localUsers) {
-        //convert this newProperty which is the local property to entity property
         Users user = convertUserToEntity(localUsers);
         String rawPassword = localUsers.getPassword();
         user.setPassword(toHexString(rawPassword));
