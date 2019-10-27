@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        
+            <title>#{titleController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-expand-sm navbar-fixed-top">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="" >#{titleController.pageTitle}&#160;&#160;&#160;&#160;&#160;| </a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><h:link value = "Home" outcome = "index" /></li>
+                        <li><h:link value = "Contact" outcome = "contact.xhtml" /></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><h:link value = "sign up" outcome = "register" /></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+            <div class="container" style="margin-top:50px">
+                <f:view>
+                    <h:form id="myForm" >
+                        <h1><h:outputText value="Register"/></h1>
+                        <table class="table table-bordered ">
+                            <tr>
+                                <td width ="200">
+                                    <h:outputLabel value="UserName:" for="username" />
+                                </td>
+                                <td>
+                                    <h:inputText id="username" value="#{users.username}" title="username" required="true"
+                                         validatorMessage="Please enter a valid username."
+                                         requiredMessage="Please enter an username. "/>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="password:" for="password" />
+                                </td>
+                                <td>
+                                    <h:inputSecret id="password" value="#{users.password}" title="password" required="true"
+                                         validatorMessage="Please enter a valid password."
+                                         requiredMessage="Please enter an password. "/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="confirm password:" for="comfirmpassword" />
+                                </td>
+                                <td>
+                                    <h:inputSecret id="comfirmpassword" value="#{passwordController.password}" title="password" required="true"
+                                         validatorMessage="Please enter a valid comfirm password."
+                                         requiredMessage="Please enter an confirm password. "/>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="emial" for="email" />
+                                </td>
+                                <td>
+                                    <h:inputText id="email" value="#{users.email}" title="users" required="true"
+                                         validatorMessage="Please enter a valid email."
+                                         requiredMessage="Please enter an email. ">
+                                    <f:validateRegex pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="phone" for="phone" />
+                                </td>
+                                <td>
+                                    <h:inputText id="phone" value="#{users.phone}" title="phone" required="true"
+                                         validatorMessage="Please enter a valid phone."
+                                         requiredMessage="Please enter an phone. ">
+                                        <h:message class="error" for="phone" id="phoneError"/>
+                                    <f:validateRegex pattern="[0-9]+"/>
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td width ="100" valign="top">User Type: </td>
+                                <td>
+                                    <h:selectOneMenu id="usertype" value="#{users.usertype}" required="true">
+                                        <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                                        <f:selectItem itemValue="admin" itemLabel="admin" />
+                                        <f:selectItem itemValue="user" itemLabel="user" />
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <h:commandButton id="submit" value="Submit" action="#{addUser.addUser(users,passwordController.password)}" class="btn btn-primary" />
+                        <h:commandButton id="close" value="Close" action="index.xhtml" class="btn btn-primary" />
+
+                    </h:form>
+
+                </f:view>
+            </div>
+        </div>
+
+    </h:body>
+</html>

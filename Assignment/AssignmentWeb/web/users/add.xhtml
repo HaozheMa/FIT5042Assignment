@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <title>#{titleController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-expand-sm navbar-fixed-top">
+                <h:form id="navForm">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="">#{titleController.pageTitle}&#160;&#160;&#160;&#160;&#160;|</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.xhtml">Home</a></li>
+                            <li><a href="animalList.xhtml">Animals List</a></li>
+                            <li><a href="add.xhtml">Add Animals</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <span class="navbar-text">Hello</span>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">#{request.remoteUser}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a href="updateAccount.xhtml">update information</a></li>
+                                    <li><a href="changePassword.xhtml">change password</a></li>
+                                    <li><h:commandLink value="logout" action="#{usersManagedBean.logout()}" /> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </h:form>
+            </nav>
+            <div class="container" style="margin-top:50px">
+                <f:view>
+                    <h1>Add Animal</h1>
+                    <h:form>
+                        <table class="table table-bordered ">
+                            <tr>
+                                <td width ="200">
+                                    <h:outputLabel value="Name:" for="name" />
+                                </td>
+                                <td>
+                                    <h:inputText id="name" value="#{animal.name}" title="name" />
+                                    <h:message for="name" style="color: red"/>  
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Description: " for="description" />
+                                </td>
+                                <td>
+                                    <h:inputText id="description" value="#{animal.description}" title="description" />
+                                    <h:message for="description" style="color: red"/>  
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td width ="100" valign="top">Eating Habits: </td>
+                                <td>
+                                    <h:selectOneMenu id="eatingHabits" value="#{animal.eatingHabits}" >
+                                        <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                                        <f:selectItem itemValue="Carnivore" itemLabel="Carnivore" />
+                                        <f:selectItem itemValue="Herbivore" itemLabel="Herbivore" />
+                                        <f:selectItem itemValue="Omnivores" itemLabel="Omnivores" />
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr>  
+
+                            <tr>
+                                <td width ="100" valign="top">Animal Type: </td>
+                                <td>
+                                    <h:selectOneMenu id="type" value="#{animal.animalType}" converter="animalType">
+                                        <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                                        <f:selectItems value="#{animalManagedBean.allAnimalType}" var="c"  
+                                                       itemLabel="#{c.type}" itemValue="#{c}" />
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr> 
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="longtitude" for="longtitude" />
+                                </td>
+                                <td>
+                                    <h:inputText id="longtitude" value="#{animal.longtitude}" title="longtitude" required="true"
+                                                 validatorMessage="Please enter a valid longtitude."
+                                                 requiredMessage="Please enter an longtitude. "/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="latitude" for="latitude" />
+                                </td>
+                                <td>
+                                    <h:inputText id="latitude" value="#{animal.latitude}" title="latitude" required="true"
+                                                 validatorMessage="Please enter a valid latitude."
+                                                 requiredMessage="Please enter an latitude. "/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td width ="100" valign="top">Living Environment: </td>
+                                <td>
+                                    <h:selectOneMenu id="livingEnvironment" value="#{animal.livingEnvironment}" >
+                                        <f:selectItem itemValue="#{null}" itemLabel="--select--" />
+                                        <f:selectItem itemValue="underWater" itemLabel="underWater" />
+                                        <f:selectItem itemValue="Land" itemLabel="Land" />
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr> 
+
+
+                        </table>
+                        <h:commandButton id="submit" value="Submit" action="#{addAnimal.addAnimal(animal)}" class="btn btn-primary" />
+                        <h:commandButton id="close" value="Close" action="animalList.xhtml" class="btn btn-primary" />
+
+                    </h:form>
+
+                </f:view>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+
+

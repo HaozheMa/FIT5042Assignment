@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <title>#{titleController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-expand-sm navbar-fixed-top">
+                <h:form id="navForm">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="">#{titleController.pageTitle}&#160;&#160;&#160;&#160;&#160;|</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.xhtml">Home</a></li>
+                            <li><a href="usersList.xhtml">Users List</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <span class="navbar-text">Hello</span>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="">#{request.remoteUser}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a href="updateAccount.xhtml">update information</a></li>
+                                    <li><a href="changePassword.xhtml">change password</a></li>
+                                    <li><h:commandLink value="logout" action="#{usersManagedBean.logout()}" /> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </h:form>
+            </nav>
+
+
+            <h:form id="MyForm" style="margin-top:60px">
+                <h1>Users List</h1>
+                <table class="table table-bordered table-striped">
+                    <!-- For each property in properties ArrayList... --> 
+                    <tr>
+                        <td> 
+                            <h:outputLabel id="Id" value="Id"  />
+                        </td>
+                        <td> 
+                            <h:outputLabel id="UserName" value="UserName"  />
+                        </td>
+
+                        <td> 
+                            <h:outputLabel id="Email" value="Email"/>
+                        </td>
+                        <td> 
+                            <h:outputLabel id="Phone" value="phone"/>
+                        </td>
+                        <td> 
+                            <h:outputLabel id="operation" value="Operation"/>
+                        </td>
+
+                    </tr>
+
+                    <ui:repeat id="Myrepeat" value="#{usersApplication.users}"  var="animal" varStatus="status"> 
+
+                        <tr onclick="document.getElementById('MyForm:principle').value = document.getElementById('MyForm:Myrepeat:#{status.index}:outUserName').textContent"> 
+                            <td>
+                                <h:outputText value="#{usersApplication.users.get(status.index).userId}" id="usersID" />
+                            </td>
+
+                            <td> 
+                                <h:outputText id="outUserName" value="#{usersApplication.users.get(status.index).username}"  />
+                            </td>
+                            <td>
+                                <h:outputText id="outEmail" value="#{usersApplication.users.get(status.index).email}"></h:outputText>
+                            </td>
+                            <td>
+                                <h:outputText id="outPhone" value="#{usersApplication.users.get(status.index).phone}"></h:outputText>
+                            </td>
+                            <td>
+                                <h:commandLink value="View | " action="detail.xhtml" disabled="#{usersApplication.users.get(status.index).userId == null}">
+                                    <!-- pass the parameter to next page, the param name is propertyID, and the value is index + 1. 
+                                    You can get the value from next page using the indexController -->
+                                    <f:param name="usersID" value="#{status.index + 1}"/>
+
+                                </h:commandLink>
+                                <h:commandLink value="Edit | " action="edit.xhtml" disabled="#{usersApplication.users.get(status.index).userId == null}">
+                                    <!-- pass the parameter to next page, the param name is propertyID, and the value is index + 1. 
+                                    You can get the value from next page using the indexController -->
+                                    <f:param name="usersID"  value="#{status.index + 1}"></f:param> 
+                                </h:commandLink>
+
+                                <h:commandLink value="Delete" action="#{removeUser.removeUser(usersApplication.users.get(status.index).userId)}" disabled="#{usersApplication.users.get(status.index).userId == null}">
+                                </h:commandLink>
+                                <h:outputText value=" "/>
+                            </td>
+                        </tr> 
+                    </ui:repeat> 
+                </table>
+                <div >
+                    <h:commandButton id="add" value="Add" action="add.xhtml" class="btn btn-primary" />
+                    &nbsp; &nbsp;
+                    <h:commandButton id="viewAll" value="View All" action="#{searchUser.searchAll()}" class="btn btn-primary" >
+                        <f:param name="userID" value="#{status.index + 1}"/>
+                    </h:commandButton>
+                </div>
+
+                <div class="container" style="margin-top:20px">
+                    <h1>Search</h1>
+                    <div>
+                        <h:outputLabel value="id:"></h:outputLabel>
+
+                        <h:inputText value="#{searchUser.searchByInt}" id="searchById" required="true"  onchange="if (document.getElementById('MyForm:searchById').value.trim() == '') {
+                                document.getElementById('MyForm:searchById').value = 0;
+                            }
+                                     "  /> 
+                    </div >
+                    <h:commandButton style="margin-top:5px" id="searchId" value="Search by Id" action="#{searchUser.searchUserByInt(searchUser.searchByInt)}" class="btn btn-primary" >
+                        <f:param name="propertyID" value="#{status.index + 1}"/>
+                    </h:commandButton>
+                </div>
+            </h:form>
+
+        </div>
+    </h:body>
+</html>
+

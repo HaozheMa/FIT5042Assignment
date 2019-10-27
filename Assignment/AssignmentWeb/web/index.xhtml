@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+
+    <h:head>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+        <title>#{titleController.pageTitle}</title>
+    </h:head>
+    <h:body>
+
+
+        <nav class="navbar navbar-inverse navbar-expand-sm navbar-fixed-top">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="" >#{titleController.pageTitle}&#160;&#160;&#160;&#160;&#160;| </a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><h:link value = "Home" outcome = "index" /></li>
+                        <li><h:link value = "Contact" outcome = "contact.xhtml" /></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><h:link value = "sign up" outcome = "register" /></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container" style="margin-top:50px">
+            <h:form id="MyForm">
+                <h1>Welcome!</h1>
+                <div class="userlogin">
+                    <h:link value = "administrator login" outcome = "admin/index" />
+                </div>
+                <div class="userlogin">
+                    <h:link value = "User login" outcome = "users/index" />
+                </div>
+            </h:form>
+            
+        </div>
+    </h:body>
+
+</html>
